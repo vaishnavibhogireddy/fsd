@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Know Your Food, Know Your Health</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== BODY ===== */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #FDF5E6, #E0FFE0); /* light biscuit to pale green */
+      color: #1F1F1F;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== HEADER & QUOTATION ===== */
+    header {
+      padding: 60px 20px 40px;
+    }
+
+    .quote-box {
+      background: rgba(255, 255, 255, 0.8);
+      display: inline-block;
+      padding: 20px 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(139,92,246,0.4);
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    /* ===== SEARCH BAR ===== */
+    .search-bar {
+      margin-bottom: 50px;
+    }
+
+    .search-bar input {
+      width: 340px;
+      padding: 14px 20px;
+      border-radius: 30px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .search-bar input:focus {
+      box-shadow: 0 0 12px rgba(139,92,246,0.5);
+      border-color: #8B5CF6;
+    }
+
+    /* ===== CATEGORIES ===== */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 50px 60px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .category {
+      font-size: 28px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #1F1F1F;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(139,92,246,0.3);
+    }
+
+    .category:hover {
+      text-shadow: 0 0 12px rgba(139,92,246,0.9);
+      transform: scale(1.05);
+      background: rgba(139,92,246,0.1);
+    }
+
+    .category span.emoji {
+      font-size: 28px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: auto;
+      height: 60px;
+      background: linear-gradient(to right, #FDF5E6, #E0FFE0);
+      border-top: 1px solid #ccc;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:600px){
+      .quote-box {
+        font-size: 28px;
+        padding: 15px 25px;
+      }
+      .category {
+        font-size: 24px;
+        padding: 15px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER & QUOTATION -->
+  <header>
+    <div class="quote-box">Know Your Food, Know Your Health</div>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar">
+    <input type="text" placeholder="Search food or category...">
+  </div>
+
+  <!-- CATEGORIES GRID -->
+  <div class="categories">
+    <a href="fruits.html" class="category"><span class="emoji">🍎</span> Fruits</a>
+    <a href="vegetables.html" class="category"><span class="emoji">🥦</span> Vegetables</a>
+    <a href="cerals.html" class="category"><span class="emoji">🌾</span> Cereals</a>
+    <a href="nuts.html" class="category"><span class="emoji">🥜</span> Nuts</a>
+    <a href="meat.html" class="category"><span class="emoji">🥩</span> Meat</a>
+    <a href="seafood.html" class="category"><span class="emoji">🐟</span> Seafood</a>
+    <a href="grains.html" class="category"><span class="emoji">🍚</span> Grains</a>
+    <a href="dairy.html" class="category"><span class="emoji">🧀</span> Dairy Products</a>
+    <a href="other.html" class="category"><span class="emoji">🍽️</span> Other</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer></footer>
+
+</body>
+</html>
