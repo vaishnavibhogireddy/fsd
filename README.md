@@ -1,15 +1,55 @@
-<<<<<<< HEAD
+🚀 FSD Project (React + Vite)
 
-  # Cinematic Landing Page Design
+This is a Full Stack Development frontend project built using React, TypeScript, Vite, and Tailwind CSS. The project focuses on building a modern, responsive, and reusable component-based UI with a clean structure.
 
-  This is a code bundle for Cinematic Landing Page Design. The original project is available at https://www.figma.com/design/xRVchAkODyiCPOvvL9YKQp/Cinematic-Landing-Page-Design.
+📌 Features
+Fast development setup using Vite
+Modern UI component system
+Fully responsive design
+Reusable and modular components
+TypeScript support for better type safety
+Clean and scalable project structure
+🛠️ Tech Stack
 
-  ## Running the code
+React, TypeScript, Vite, Tailwind CSS, PostCSS, Node.js
 
-  Run `npm i` to install the dependencies.
+📁 Project Structure
 
-  Run `npm run dev` to start the development server.
-  
-=======
-# fsd
->>>>>>> c5829b383d7a115d92ec9e6fc8fcdb78de7a29a0
+src/
+├── app/
+│ ├── components/
+│ │ ├── ui/ (reusable UI components)
+│ │ ├── figma/ (UI utilities/helpers)
+│ │ └── ...
+│ ├── App.tsx
+│
+├── styles/
+│ ├── globals.css
+│ ├── tailwind.css
+│ ├── theme.css
+│
+├── main.tsx
+
+🚀 Getting Started
+Clone the repository
+
+git clone https://github.com/vaishnavibhogireddy/fsd.git
+
+Move into project folder
+
+cd fsd
+
+Install dependencies
+
+npm install
+
+or
+pnpm install
+
+Run the project
+
+npm run dev
+
+🌐 Build for Production
+
+npm run build
