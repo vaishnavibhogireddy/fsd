@@ -1,43 +1,91 @@
 🚀 FSD Project (React + Vite)
 
-This is a Full Stack Development frontend project built using React, TypeScript, Vite, and Tailwind CSS. It focuses on building a modern UI with reusable components, clean architecture, and responsive design.
+📌 Overview
 
-📌 Features
-⚡ Fast development using Vite
-🎨 Modern UI component system
-📱 Fully responsive design
-🧩 Reusable and modular components
-🔷 TypeScript support for type safety
-📂 Clean and scalable project structure
+This is a Frontend Full Stack Development project built using modern technologies like React, TypeScript, Vite, and Tailwind CSS.
+
+The project focuses on creating a clean, scalable, and responsive user interface.
+
+---
+
 🛠️ Tech Stack
-React
-TypeScript
-Vite
-Tailwind CSS
-PostCSS
-Node.js
-PROJECT STRUCTURE:
+
+- ⚛️ React
+- 📘 TypeScript
+- ⚡ Vite
+- 🎨 Tailwind CSS
+- 📦 Node.js
+
+---
+
+✨ Features
+
+- 🚀 Fast development with Vite
+- 🎯 Reusable UI components
+- 📱 Fully responsive design
+- 🔒 Type safety using TypeScript
+- 🧩 Modular and scalable architecture
+
+---
+
+📂 Project Structure
+
 src/
-│── app/
-│   ├── components/
-│   │   ├── ui/        # Reusable UI components
-│   │   ├── figma/     # UI utilities/helpers
-│   ├── App.tsx
-│
-│── styles/
-│   ├── globals.css
-│   ├── tailwind.css
-│   ├── theme.css
-│
-│── main.tsx
-🚀 Getting Started
-1. Clone the repository
-    git clone https://github.com/vaishnavibhogireddy/fsd.git
-2. Move into project folder
-    cd fsd
-3. Install dependencies
-     npm install
-        or
-     pnpm install
-4. Run development server
-    npm run dev
+ ┣ components/   → Reusable UI components  
+ ┣ pages/        → Application pages  
+ ┣ styles/       → Global styles  
+ ┣ utils/        → Helper functions  
+ ┣ App.tsx       → Main app component  
+ ┗ main.tsx      → Entry point  
+
+---
+
+⚙️ Installation & Setup
+
+1. Clone the repository:
+
+git clone https://github.com/vaishnavibhogireddy/fsd.git
+
+2. Navigate to project folder:
+
+cd fsd
+
+3. Install dependencies:
+
+npm install
+
+4. Run the development server:
+
+npm run dev
+
+---
+
+📸 Screenshots
+
+(Add your project screenshots here)
+
+---
+
+🌐 Live Demo
+
+(Add deployed link here)
+
+---
+
+📌 Future Improvements
+
+- Add backend integration
+- Improve UI/UX
+- Add authentication system
+
+---
+
+👩‍💻 Author
+
+Vaishnavi Bhogireddy
+
+---
+
+⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
