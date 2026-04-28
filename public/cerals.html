@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cereals - Know Your Food, Know Your Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #FDF5E6; /* light biscuit */
+  color: #1F1F1F;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+}
+
+.home-link {
+  font-size: 32px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.home-link:hover {
+  color: #5B2E2E;
+  transform: scale(1.2);
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 320px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+.search-bar input:focus {
+  box-shadow: 0 0 12px rgba(139,92,246,0.5);
+  border-color: #8B5CF6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 50px 60px;
+  justify-items: center;
+}
+
+.card {
+  width: 180px;
+  height: 180px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.card-front h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-front .info p {
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  font-size: 13px;
+  line-height: 1.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover .card-inner {
+  box-shadow: 0 0 20px 8px rgba(165, 42, 42, 0.5); /* brown glow */
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media(max-width:1000px){ .grid { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:700px){ .grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:500px){ .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="home-link" onclick="goHome()">🏠</div>
+  <h1>Cereals</h1>
+  <div class="search-bar">
+    <input type="text" placeholder="Search cereals..." id="searchInput">
+  </div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+function goHome() { window.location.href = "home.html"; }
+
+const cereals = [
+  {name:"Wheat 🌾",vitamins:"B1, B3",minerals:"Magnesium",benefits:"Supports heart & boosts energy"},
+  {name:"Rice 🍚",vitamins:"B1, B6",minerals:"Manganese",benefits:"Provides energy & supports digestion"},
+  {name:"Oats 🥣",vitamins:"B1, B5",minerals:"Iron",benefits:"Reduces cholesterol & aids digestion"},
+  {name:"Barley 🌾",vitamins:"B1, B3",minerals:"Selenium",benefits:"Supports immunity & digestion"},
+  {name:"Corn 🌽",vitamins:"B, C",minerals:"Magnesium",benefits:"Provides energy & supports skin"},
+  {name:"Quinoa 🫘",vitamins:"B6",minerals:"Iron",benefits:"Boosts protein & energy"},
+  {name:"Millet 🌾",vitamins:"B1, B2",minerals:"Magnesium",benefits:"Supports heart & metabolism"},
+  {name:"Buckwheat 🥣",vitamins:"B1, B2",minerals:"Magnesium",benefits:"Improves digestion & heart"},
+  {name:"Rye 🌾",vitamins:"B1, B3",minerals:"Phosphorus",benefits:"Supports metabolism & energy"},
+  {name:"Sorghum 🌾",vitamins:"B1, B2",minerals:"Iron",benefits:"Boosts immunity & energy"},
+  {name:"Teff 🥣",vitamins:"B1, B2",minerals:"Calcium",benefits:"Supports bones & digestion"},
+  {name:"Amaranth 🫘",vitamins:"B6",minerals:"Iron",benefits:"Improves heart & energy"},
+  {name:"Spelt 🌾",vitamins:"B1, B3",minerals:"Magnesium",benefits:"Boosts metabolism & heart"},
+  {name:"Freekeh 🌾",vitamins:"B1, B6",minerals:"Iron",benefits:"Supports digestion & energy"},
+  {name:"Triticale 🌾",vitamins:"B1, B3",minerals:"Magnesium",benefits:"Heart health & protein"},
+  {name:"Kamut 🌾",vitamins:"B1, B3",minerals:"Iron",benefits:"Supports energy & immunity"},
+  {name:"Fonio 🌾",vitamins:"B1, B2",minerals:"Magnesium",benefits:"Boosts digestion & heart"},
+  {name:"Barley flakes 🥣",vitamins:"B1, B3",minerals:"Selenium",benefits:"Supports immunity & digestion"},
+  {name:"Cornflakes 🌽",vitamins:"B1, B2",minerals:"Iron",benefits:"Provides energy & supports bones"},
+  {name:"Oatmeal 🥣",vitamins:"B1, B5",minerals:"Magnesium",benefits:"Reduces cholesterol & boosts energy"}
+];
+
+const grid = document.getElementById("grid");
+
+function loadCereals(list){
+  grid.innerHTML = "";
+  list.forEach(c => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <div class="card-inner">
+        <div class="card-front">
+          <h4>${c.name}</h4>
+          <div class="info">
+            <p>${c.vitamins}</p>
+            <p>${c.minerals}</p>
+          </div>
+        </div>
+        <div class="card-back">
+          <p>${c.benefits}</p>
+        </div>
+      </div>
+    `;
+    card.onclick = ()=>card.classList.toggle("flip");
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("searchInput").addEventListener("input", function(){
+  const q = this.value.toLowerCase();
+  const filtered = cereals.filter(c=>c.name.toLowerCase().includes(q));
+  loadCereals(filtered);
+});
+
+loadCereals(cereals);
+</script>
+</body>
+</html>
