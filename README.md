@@ -60,13 +60,6 @@ npm run dev
 
 ---
 
-
-🌐 Live Demo
-
-(Add deployed link here)
-
----
-
 📌 Future Improvements
 
 - Add backend integration
