@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Meat - Know Your Food, Know Your Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #FDF5E6;
+  color: #1F1F1F;
+  text-align: center;
+}
+
+header {
+  padding: 20px;
+}
+
+.home-link {
+  font-size: 32px;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+.home-link:hover {
+  color: #5B2E2E;
+  transform: scale(1.2);
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 320px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+.search-bar input:focus {
+  box-shadow: 0 0 12px rgba(139,92,246,0.5);
+  border-color: #8B5CF6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 0 50px 60px;
+  justify-items: center;
+}
+
+.card {
+  width: 180px;
+  height: 180px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  backface-visibility: hidden;
+  text-align: center;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.card-front h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-front .info p {
+  font-size: 12px;
+  margin: 2px 0;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  font-size: 13px;
+  line-height: 1.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.card:hover .card-inner {
+  box-shadow: 0 0 20px 8px rgba(165, 42, 42, 0.5);
+  transform: scale(1.05);
+}
+
+@media(max-width:1000px){ .grid { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:700px){ .grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:500px){ .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="home-link" onclick="goHome()">🏠</div>
+  <h1>Meat</h1>
+  <div class="search-bar">
+    <input type="text" placeholder="Search meat..." id="searchInput">
+  </div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<script>
+function goHome() { window.location.href = "home.html"; }
+
+const meats = [
+  {name:"Chicken 🍗",vitamins:"B3, B6",minerals:"Phosphorus",benefits:"High protein, supports muscles"},
+  {name:"Beef 🥩",vitamins:"B12, B6",minerals:"Iron",benefits:"Boosts energy & strength"},
+  {name:"Pork 🥓",vitamins:"B1, B6",minerals:"Selenium",benefits:"Supports metabolism & muscles"},
+  {name:"Lamb 🍖",vitamins:"B12, B3",minerals:"Zinc",benefits:"Good for muscles & immunity"},
+  {name:"Turkey 🦃",vitamins:"B3, B6",minerals:"Selenium",benefits:"Supports heart & muscles"},
+  {name:"Goat 🐐",vitamins:"B12, B3",minerals:"Iron",benefits:"Rich in protein & minerals"},
+  {name:"Duck 🦆",vitamins:"B5, B6",minerals:"Phosphorus",benefits:"Supports brain & heart"},
+  {name:"Venison 🦌",vitamins:"B12, B6",minerals:"Iron",benefits:"Boosts energy & muscle growth"},
+  {name:"Rabbit 🐇",vitamins:"B3, B12",minerals:"Phosphorus",benefits:"Lean protein, heart friendly"},
+  {name:"Goose 🦢",vitamins:"B3, B6",minerals:"Selenium",benefits:"Rich in protein & energy"},
+  {name:"Quail 🥚",vitamins:"B12, B3",minerals:"Iron",benefits:"Supports bones & immunity"},
+  {name:"Kangaroo 🦘",vitamins:"B12, B3",minerals:"Zinc",benefits:"Lean protein, supports muscles"},
+  {name:"Buffalo 🐃",vitamins:"B12, B6",minerals:"Iron",benefits:"High protein & minerals"},
+  {name:"Sausage 🌭",vitamins:"B1, B6",minerals:"Sodium",benefits:"Energy boost, tasty protein"},
+  {name:"Salami 🥓",vitamins:"B12, B6",minerals:"Iron",benefits:"Protein rich, supports muscles"},
+  {name:"Ham 🍖",vitamins:"B1, B6",minerals:"Selenium",benefits:"Energy & heart support"},
+  {name:"Bacon 🥓",vitamins:"B3, B6",minerals:"Sodium",benefits:"Boosts energy & taste"},
+  {name:"Mutton 🍖",vitamins:"B12, B3",minerals:"Zinc",benefits:"Supports muscles & immunity"},
+  {name:"Fish Meat 🐟",vitamins:"B12, D",minerals:"Phosphorus",benefits:"Supports bones & heart"},
+  {name:"Goose Liver 🦢",vitamins:"A, B12",minerals:"Iron",benefits:"Rich in vitamins & protein"}
+];
+
+const grid=document.getElementById("grid");
+
+function loadMeats(list){
+  grid.innerHTML="";
+  list.forEach(m=>{
+    const card=document.createElement("div");
+    card.className="card";
+    card.innerHTML=`
+      <div class="card-inner">
+        <div class="card-front">
+          <h4>${m.name}</h4>
+          <div class="info">
+            <p>${m.vitamins}</p>
+            <p>${m.minerals}</p>
+          </div>
+        </div>
+        <div class="card-back">
+          <p>${m.benefits}</p>
+        </div>
+      </div>
+    `;
+    card.onclick=()=>card.classList.toggle("flip");
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById("searchInput").addEventListener("input",function(){
+  const q=this.value.toLowerCase();
+  const filtered=meats.filter(m=>m.name.toLowerCase().includes(q));
+  loadMeats(filtered);
+});
+
+loadMeats(meats);
+</script>
+</body>
+</html>

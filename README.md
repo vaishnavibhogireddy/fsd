@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
   # Cinematic Landing Page Design
 
@@ -9,3 +10,6 @@
 
   Run `npm run dev` to start the development server.
   
+=======
+# fsd
+>>>>>>> c5829b383d7a115d92ec9e6fc8fcdb78de7a29a0
