@@ -85,15 +85,15 @@ export default function App() {
     Seafood: "/seafood.html",
     Grains: "/grains.html",
     "Dairy Products": "/dairy.html",
-    "Other Food Items": "/others.html",
+    "Other Food Items": "/other.html",
   };
 
   if (currentPage === "buildplate") {
     return (
-      <div>
+      <div className="min-h-screen bg-white">
         <button
           onClick={() => setCurrentPage("home")}
-          className="fixed top-6 left-6 z-50 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg"
+          className="fixed top-6 right-6 z-50 px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-lg"
         >
           ← Back Home
         </button>
