@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { CategorySection } from "./components/CategorySection";
+import { BuildYourPlate } from "./components/BuildYourPlate";
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
   const [typedText, setTypedText] = useState("");
+  const [currentPage, setCurrentPage] = useState<"home" | "buildplate">("home");
   const fullText = "Know Your Food, Know Your Health";
 
   useEffect(() => {
@@ -36,6 +38,10 @@ export default function App() {
     { name: "Other Food Items", image: "https://images.unsplash.com/photo-1636044997342-3eec12c46d85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" }
   ];
 
+  if (currentPage === "buildplate") {
+    return <BuildYourPlate />;
+  }
+
   if (showIntro) {
     return (
       <motion.div
@@ -53,10 +59,17 @@ export default function App() {
   return (
     <div className="bg-black scroll-smooth">
 
-      <div className="fixed top-8 left-8 z-40">
+      <div className="fixed top-8 left-8 z-40 flex items-center gap-6">
         <h1 className="text-3xl tracking-widest text-white/90">
           NUTRI<span className="text-green-400">CARD</span>
         </h1>
+        <motion.button
+          onClick={() => setCurrentPage("buildplate")}
+          whileHover={{ scale: 1.05 }}
+          className="px-6 py-2 bg-green-500 hover:bg-green-600 text-white rounded-full text-sm font-semibold transition"
+        >
+          🍽️ Build Plate
+        </motion.button>
       </div>
 
       {categories.map((category, index) => {
