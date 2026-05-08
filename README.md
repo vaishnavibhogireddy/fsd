@@ -60,14 +60,6 @@ npm run dev
 
 ---
 
-📌 Future Improvements
-
-- Add backend integration
-- Improve UI/UX
-- Add authentication system
-
----
-
 👩‍💻 Author
 
 Vaishnavi Bhogireddy
